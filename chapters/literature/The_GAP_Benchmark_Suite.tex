@@ -1,0 +1,21 @@
+\cite{beamer2015gap}
+\subsubsection{Summary}
+Pre release of a benchmark specification for graph processing.
+The benchmark specification consists of the following items:
+\begin{enumerate}
+\item Graph kernels and their solution(s)
+\item A set of input graphs
+\item Evaluation methodologies.
+\end{enumerate}
+
+\subsubsection{Relation to topic}
+\begin{itemize}
+\item The benchmark should ensure that the same thing is computed in the same way. \\
+In our case this seems to specifically challenging for time measurements like (de)compression time. How do we make sure that these measurements can be directly compared when authors are working on different platforms?
+\item Part of the benchmark specification is the set of input graphs. This is comparable to a set of WCD files for the WCD compression benchmark. The input graphs have been selected to be diverse in topology (content) and origin. The origin can either be real-world or synthetic. Including synthetic input data in a benchmark has the advantage that authors cannot tailor their algorithm to that part of the input data. Contrary to graphs, water column data is not a mathematical concept, so generating synthetic data that is representative of real-world water column data may be challenging.
+\item One of the input graphs (road) has specifically been chosen because of a property that makes the graph hard to process by a certain class of algorithms.
+\item The autors specifically state that execution of only a subset of the kernels is allowed because some users of the suite may only be interested in investigating a single graph problem. If we define a set of input data it will likely contain data in different encodings. All of the WCD compression algorithms we have found have been tailored to a specific encoding and thus are likely to under perform on  other encodings (or not function at all). For those cases, we may want to explicitly allow the users of the benchmark to only use a subset of the input data. 
+\item The benchmark specifies that each kernel should be run a number of times to gather significant results. The authors explain why some kernels need to be run more often than others, but I could not find an explanation for the exact numbers (64,16 and 3). It is likely that we will need to do multiple runs for certain metrics that will have a significant variation over runs (such as (de)compression time). We need to determine what the appropriate number of runs would be for those metrics.
+\item The authors specifically mention that no data structure other than the graph should be reused between trials to prevent the algorithm from applying optimization between the different runs. We should at least mention the same. Possibly include a way to verify. Plotting the results for each trial should show a noisy characteristic if no optimizations are applied between trials and show a pattern when they are.
+\item The authors explicitly state that "none of the kernels may take parameters specific to the input graph". We may want to allow algorithms to take some meta data related to the input data in our benchmark. (Static) information related to the device from which the data originated may be useful to improve compression. For instance the encoding of the data and resolution at which the device can sample data. 
+\end{itemize}

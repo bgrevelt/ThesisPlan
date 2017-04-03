@@ -1,0 +1,11 @@
+\cite{amblasreal}\\
+The authors apply FAPEC, a compression algorithm initially developed for space data communications, to water column data. FAPEC, uses entropy encoding and "includes mechanisms for the efficient compression of sequences with repeated values". The proposed algorithm used a pre-processing pipeline tailored to MBES water column data.\\
+The test results show a compression rate of approximately 1:1.7. The algorithm was considerably faster than any of the other general purpose compression techniques that were evaluated (Gzip, Bzip2, Rar \& 7Zip) with FAPEC being more than twice as fast as the first runner up. 
+\\
+Points of interest:\\
+\begin{itemize}
+\item The authors use a small set of test files that consists of two data sets.
+\item Both datasets used in the test originate from the same unit (Kongsberg EM710). 
+\item The authors use classify the two datasets as 'Smooth seafloor' and 'Shipwreck'. They do not compare to data sets with other types of information such as fish or gas plumes.
+\item Although cited, the authors do not compare their algorithm to the algorithm proposed by Moszynski et al.\cite{moszynski2013novel}. It is interesting to see that the comnpression rates the authors see for 7Zip (0.62-0.75) deviate somewhat from those found by Moszynski et al.\cite{moszynski2013novel} (0.23-0.69). This could imply that the datasets differ significantly in their ability to be compressed which would make comparing the compression rates of both proposed algorithms hard. 
+\end{itemize}

@@ -1,0 +1,18 @@
+\cite{capotua2015graphalytics}
+
+\subsubsection{Summary}
+A benchmark is introduced for graph-processing platforms. The benchmark appears to be based on the vision detailed in "Benchmarking Graph-Processing platforms: A Vision" \cite{guo2014benchmarking}.
+
+The benchmark uses a choke-point based design which means that the problems that challenge the current technology are collected and described early in the design process \cite{ChokePoint}. These choke-points are identified by experts in the community. The data set used consists of both representative real-world data and generated data.
+
+The benchmark includes an API that allows developers to "port our benchmark to their graph processing platforms".
+\subsubsection{Relation to the topic}
+
+\begin{itemize}
+\item LDBC website is very informative
+\item Is the WCD compression field mature enough to (properly) define choke-points. If it is not, how do we make sure that the benchmark will not become redundant once the field reaches that maturity?
+\item Using real-world data from different domains strengthens the credibility of the benchmark.
+\item The argumentation for complementing real-world data with generated data is somewhat unclear to me. The authors state that "real graphs are very diverse, and finding a set of them covering a rich enough configuration space is not feasible in practice", but it is unclear what this conclusion is based on. Have th authors defined when a set would be "rich enough"? Were there specific items that could not be found in real-world data but could be generated?
+\item In the "vision paper" \cite{guo2014benchmarking} the authors suggested normalized metrics without going in too much detail. In this paper I have not found any information on these metrics either. I did see that they allow for users to add results to a central result database. It would be interesting to see if the authors have found a way to publish results that can directly be compared without taking the hardware of the user that published the result into account.
+\item The authors state that "From a high-level perspective, adding a new platform to Graphalytics consists of implementing the algorithms, adding a dataset loading method, providing a workload processing interface, and logging the information required for results reporting". It is still unclear to me why algorithms need to be reimplemented for the benchmark. This is probably due to my limited knowledge of the domain. For WCD compression algorithms, the authors often do not give enough detail for replication (most likely to be able to capitalize on the algorithm) which means that the authors are the only people that would be able to add their algorithm to the benchmark suite. If they need to rewrite the complete algorithm to do so, this could be a very real threat to adoption. I am interested to find out how this works in the graph-processing domain.
+\end{itemize}

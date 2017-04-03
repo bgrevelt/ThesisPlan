@@ -1,0 +1,43 @@
+\cite{guo2014benchmarking}
+\subsubsection{Summary}
+The authors of the paper are faced with a similar problem as the one described in this plan: a relatively immature field (graph processing) in which there is a lack in understanding of how to determine the performance of the different options. As a step towards the goal of creating a benchmark suite, seven challenges for creating such a suite are presented:
+\begin{itemize}
+\item Evaluation process\\
+How to design the benchmark process in such a way that a 'fair' comparison of platforms can be attained. This relates to rules and/or definition for data format, workflows, multi-tenancy  and tuning.
+\item Selection and design of performance metrics\\
+Which metrics are of interest and how can these be normalized to directly compare runs on different hardware. 
+\item Dataset selection\\
+Selection of a dataset that is representative, but also able to stress bottlenecks of the platforms.
+\item Algorithm coverage\\
+Selecting a representative, reduced, set of graph-processing algorithms.
+\item Scalability\\
+The benchmark should be able to deal with both platforms of a super computer and a small-business scale.
+\item Portability\\
+Take care to balance the required features of the benchmark suite against the amount of work it takes to make a platform "benchmark ready".
+\item Reporting of results
+Ideally the benchmark produces a single metric that signifies the performance of the platform. The authors believe that such a metric will be hard/impossible to find as no platform can offer the best performance over the whole dataset. Even when only evaluating a single metric.
+\end{itemize}
+
+\subsubsection{Relation to the topic}
+The relation to the topic is evident as the authors describe steps towards a solution for a problem similar to the one addressed in this plan. The following items are of specific interest:
+\begin{itemize}
+\item Algorithm coverage does not seem to be a problem in our case as the algorithms are limited to compression and decompression. 
+\item The authors refer to a survey of graph processing use. A similar study on WCD would help in the creation of a data set.
+\item Although challenges stated in this paper are likely to overlap the challenges for a WCD compression algorithm benchmark, it is important that we create a similar set of challenges specifically of WCD compression algorithm benchmarking.
+\item The authors indicate that the format of the input data should be defined in the benchmark. In this case, I assume that this means that a single format is used for the graph data and that that format is specified in the benchmark specification. For WCD, the (original) data format depends on the MBES from which the data originated as there are multiple, vendor specific, formats. A generic WCD format has been proposed by Doucet et al.\cite{doucet2009advanced} which could be used to get the data set in a single format. Although a single format could potentially make it easier to adapt an algorithm to support the benchmark suite, there could be potential downsides:
+\begin{itemize}
+\item The conversion to the generic format could influence results.
+\item As the generic format is not used by any manufacturer, there are currently no algorithms that directly support this format. This could lead to reduced adoption of the benchmark.
+\end{itemize}
+\item The concept of normalized metrics is really interesting for WCD compression as well since (de)compression time is likely to be one of the more important metrics and directly related to the hardware the algorithm runs on.
+\item The selection of graphs in the data set specifically to stress bottlenecks seems interesting. At the moment I am unsure if the domain is mature enough to even indicate what the bottlenecks of WCD compression algorithms are, but it would be interesting to look into this.
+\item Portability is an important issue for a WCD compression algorithm benchmark as well. Until now, I have assumed that the framework would simply 'run' the application and measure some external factors (time, resource usage etc.) to calculate metrics. The portability section in the paper seems to suggest that the algorithms need to be written in the same programming language as the framework. That seems to imply a necessity for a tighter coupling between benchmark and algorithm than I had anticipated. Something to look in to.
+\item Standard Performance Evaluation Corporation is mentioned in the paper. A quick look at their website shows that the corporations hosts a number of benchmarks. Interesting to follow up on. Especially submission and presenting of benchmark results.
+\item The authors used "comprehensive literature studies of metrics, datasets and algorithms used in practice". For this project a literature study would not be that comprehensive (as only three papers have been published on the subject). Adding papers on compression algorithms for other, similar domains may be a solution for this problem. 
+Another means to get to this information would be to conduct interviews. Interviews with authors of WCD compression algorithms can provide insight into what they consider to be important metrics. Interviews with people in the field of WCD processing (e.g. the potential users of the compression algorithms) can provide insight into how the algorithms would be used and thus which metrics are important to the user. 
+\item The authors indicate that "Few performance metrics are tested and reported" in the articles that were part of the literature study. As the literature study is presented as a means to get to a list of metrics, this makes me wonder how they ended up defining the metrics to use in the benchmark. Perhaps we can find this in the follow up paper \cite{capotua2015graphalytics}.
+\end{itemize}
+
+
+
+

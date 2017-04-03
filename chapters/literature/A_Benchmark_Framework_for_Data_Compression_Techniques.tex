@@ -1,0 +1,16 @@
+\cite{damme2015benchmark}\\
+The authors present a benchmark framework for data compression. The user of the framework feeds the framework a benchmark specification that is made up of sets of algorithms to evaluate. For each set, the input data for the algorithms is defined by choosing and parameterizing a data generator. One of the variables of the data generator is assigned a list of values so that this variable can be changed during the benchmark run.
+
+In subsequent steps, the data is generated, the algorithms are run on the data (whereby runtime and resulting size are recorded), and additional results are computed from the results recorded during the run.
+
+Interfaces for data generators and compression algorithms are said to make the framework extendable.
+
+The framework appears to be oriented towards compression for database systems which typically encounter very diverse types of data. 
+The authors focus on performance of the framework. This appears to be closely related to the diversity of data; the authors expect that a lot of different types of data have to be generated to compare different compression methods and put a lot of emphasis on optimizing this process. That part of the framework may not be very relevant to our water column compression as in our case a corpus will be used with 'real life' data rather than the generation of data.
+
+A number of items are interesting for the water column compression algorithm evaluation framework:
+\begin{itemize}
+\item The benchmark specification is interesting. Although we do not have data generators that fully generate the data. It is likely that we will need something to generate water column packages from the input files (that may contain non-water column data, or fragmented data that needs to be combined prior to compression). 
+\item I would like to work with interfaces for the compression algorithms to allow easy benchmarking as well. Unfortunately, there is not much information about the interface in the paper.
+\end{itemize}
+

@@ -1,0 +1,15 @@
+\chapter{Problem Analysis}
+\chapterdecscription{Here you present your analysis of the problem situation that your research will address. How does this problem manifest itself at your host organization? Also summarizes existing scientific insight into the problem (result of your literature survey, see below).}
+
+The host organization is a company that builds and sells hydrographic software. One of the main purposes of the products of the host organization is to provide information on the depth and form of the seafloor.  Water column data is a byproduct of sea floor detection systems for which researchers have found many applications \cite{clarke2006applications}\cite{buelens2006computational} that could improve and expand the host organization's products.
+
+A big problem with water column data is its volume. With data rates of several gigabytes per hour\cite{beaudoin2010application} the storage requirements drastically increase when water column data is recorded. Beaudoin states that 'A ten-fold increase in data storage requirements is not uncommon'\cite{beaudoin2010application}.  Moszynski at all state that 'the size of water column data can easily exceed 95\% of all data collected by a multibeam system" \cite{moszynski2013novel}. The additional costs incurred by the high data volume of water column data (either by increased storage requirements or by the increased cost of data transmission from the vessel to the processing stations on shore) are often a reason for surveyors not to collect water column data \cite{moszynski2013novel}\cite{beaudoin2010application}\cite{amblasreal}. 
+
+The reciprocal problem that exists here is that users of the host organization's software are reluctant to record water column due to the high cost and little gain. On the other side, the host organization sees a lot of potential in water column processing, but is reluctant to invest in implementation as water column data is often not recorded by the clients. \\
+The host organization believes that compression of water column data may encourage clients to record water column data during surveys, which in turn would enable them to enhance their products by adding water column processing.
+
+A number of algorithms have been presented by researchers in recent years \cite{moszynski2013novel}\cite{beaudoin2010application}\cite{amblasreal}, but since there is no established benchmark for WCD compression and none of the studies directly compares its result to the results in other studies, there is no way to determine which of the proposed algorithms is the most optimal one. 
+
+This project aims to provide a benchmark for WCD compression algorithms to enable the host organization to choose the most optimal algorithm to implement in their software suite and to evaluate the improvement of any possible future algorithm.
+
+\temporary{Possibly the benchmark also has purpose when developing a new compression algorithm or improving an existing one. The graph benchmark seems to explicitly facilitate this by having a parameterizable dataset generator to be able to focus on a specific problem.}

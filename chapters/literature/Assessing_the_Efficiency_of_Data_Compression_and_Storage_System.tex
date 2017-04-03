@@ -1,0 +1,8 @@
+\cite{swacha2008assessing}\\
+
+The author presents a data storage efficiency measure. Part of data storage efficiency is data compression. Most of the paper is not relevant for my thesis, but there are some parts of interest:
+\begin{itemize}
+\item The author states that a singular metric for compression efficiency is desirable, but hard to give as the different metrics from compression (such as compression rate, compression time and decompression time) have different weights assigned to them according to the application. In applications where data is only encoded once, but is decoded many times, the time required for decoding will likely be more important than the time required for encoding. Encoding of water column data is a similar situation in which the data will be encoded once (as it is received from the MBES) en may be decoded multiple time during processing. On the other hand, ff water column data is to be compressed during acquisition, it is of vital importance that the compression time is lower than the data interval.
+\item The author states that "many compression methods are asymmetric in the sense that their coding and decoding algorithms significantly differ in complexity" which is an interesting point. If this is true, if would make sense to use both compression and decompression time as a metric. None of the compression algorithm evaluation studies I have found so far show decompression time.
+\item Software tool CoTe is introduced which can be used to gather performance data for compression algorithms \url{http://www.wneiz.pl/cote}.
+\end{itemize}

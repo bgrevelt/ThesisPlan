@@ -1,0 +1,22 @@
+\cite{beaudoin2010application}\\
+The author uses the (JasPer implementation of) the JPEG2000 algorithm to compress MBES water column data. Lossless encoding leads to a compression rate of approximately 1:1.5. Compression rates up to 1:10 are attainable when lossy compression is used while still "yielding very little loss of resolution or introduction of artifacts". 
+\\
+Points of interest:\\
+\begin{itemize}
+\item A single dataset is used for the experiment. The data set originates from a Kongsberg EM3002 and contains a wreck.
+\item The author notes that a lot of padding is required to get the water column data into a rectangular shape
+\footnote{The water column used by the author stops at the bottom detect. On a flat seafloor this means that the beam that is perpendicular to the seafloor is the shortest while beams with a larger or smaller angle to the seafloor are longer. This is the reason that padding is needed to get a rectangular shape. It is worth noting that there are also MBES systems for which the water column does not stop at the bottom detection and thus have an equal length for all beams}. We may be able to improve the compression rate if we can decrease padding. One possible way would be (as is mentioned by the author) to apply tiling.
+\item The author does not discuss the time required for compression.
+\item The author does not explicitly compare to one of the standard general purpose compression methods (e.g. ZIP, TAR, 7-ZIP, etc) other then a reference to the Lempe;-Ziv algorithm.
+\item The author shows that much higher compression rates can be attained by using lossy compression. He subsequently shows that the resolution loss and artifact creation induced by the lossy compression does not lead to reduced results for least depth estimation. This is an interesting observations. It does give rise to other questions:
+{\begin{itemize}
+\item Do the results extrapolate to other data sets?
+\item Can the same be said for other applications of water column data (fishery, gas seeps, etc)
+\item only sample data is compressed in this algorithm
+\begin{itemize}
+\item Could we improve compression rate if the 'header data' is compressed as well? \footnote{I would not expect that this is the case as I expect that the sample data is far larger (>95\%) than the header data. But this is an assumption}
+\item This means that the algorithm needs to have knowledge of the encoding of the data which makes a generic implementation harder than it would be with a compression method that does not need to have that knowledge.
+\end{itemize}
+\item We seem to have a chicken and egg problem here: Scientists see many applications of water column data, but due to the size, it is often not recorded. Compression of water column is presented as a solution for this problem. Lossy compression offers the highest compression ratio. In order to be sure that there is no difference between the possible applications for lossy compressed water column and uncompressed (or loss less compressed) water column data, we need to have standards for water column processing. Which do not exist as water column is often not recorded.
+\end{itemize}}
+\end{itemize}

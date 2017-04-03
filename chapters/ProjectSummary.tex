@@ -1,0 +1,55 @@
+\chapter{Project Summary}
+\chapterdecscription{
+Give a short (at most 1 page) description of the project. Make sure that the following issues are covered:
+	·	The global context of the project,
+	·	The relevancy of your research,
+	·	The specific research questions to be answered in the project.
+}
+
+Water column data is a hydrographic data modality that has much potential to increase hydrographic software performance and functionality\cite{clarke2006applications}\cite{buelens2006computational}. A mayor problem with water column data (WCD) is its volume. Due to the additional costs involved with this volume, WCD is often not stored. \cite{buelens2006computational} \cite{moszynski2013novel}\cite{beaudoin2010application}\cite{amblasreal}. As a result, commercial parties are reluctant to invest in WCD processing and thus the potential of the data is wasted. 
+
+A number of algorithms for water column compression algorithms have been proposed in the past decade \cite{moszynski2013novel}\cite{beaudoin2010application}\cite{amblasreal} to solve this problem. Due to differences in hardware and dataset as well as the lack of direct comparison to previously proposed WCD compression algorithms the results published in the papers cannot be compared. As a result it is unclear how the different algorithms compare and whether or not the publications present any actual progress in the field of WCD compression. 
+
+This project aims to solve this problem by introducing a benchmark for WCD compression. The benchmark should act as a standardized way to evaluate the performance of WCD compression algorithms so that authors can reliably show that a new algorithm outperforms the current state of the art. Another benefit of a benchmark is that it, when widely adopted, can facilitate rapid technical progress.\cite{sim2003using}
+
+Since the field of WCD processing is relatively immature, it is hard to determine if/how much loss a compression method may introduce while still yielding data of sufficient quality for processing. Therefore we focus solely on lossless compression algorithms.  
+
+As there is currently no (attempt at a) benchmark for lossless WCD compression, the research question for this thesis is "How to benchmark the performance of lossless WCD compression algorithms". Based on research into the creation of benchmarks in other (related) domains and the specifics of the WCD compression domain, we will present a benchmark for lossless WCD compression. 
+
+To validate the benchmark, it will be applied to a number of lossless compression algorithms. 
+
+
+% A corpus of water column data files that can serve as a benchmark suite for the evaluation of water column data compression algorithms (similar to the Calgary corpus\cite{bell1990text} and the Canterbury corpus\cite{arnold1997corpus} that have been created as a benchmark set for lossless text compression) will also be defined in the project. The corpus together with the framework can serve as a standardized test for water column data compression performance evaluation.
+
+% \todo{This summary may be a little too short}
+
+% \begin{itemize}
+%   \item How do the different methods suggested for water column compression compare?
+%   \begin{itemize}
+%   	\item Which compression methods for water column data exist?
+%     \item How to compare different methods of compression?
+%     \item Is water column compression something that is needed?
+%   \end{itemize}
+%   \item Does a correlation exist between compression performance and the data in the water column?
+%   \begin{itemize}
+%   	\item What is / how to measure water column compression performance?
+%     \item How do we define a standardized set of types of data that may exist in a water column (similar to benchmark suite~\cite{arnold1997corpus})
+%     \begin{itemize}
+%     	\item What are the applications of water column data?
+%     \end{itemize}
+%   \end{itemize}
+%   \item Does a correlation exist between compression performance and the method of encoding of the data?
+%   \begin{itemize}
+%   	\item What is / how to measure water column performance?
+%     \item Which types of encoding are used for water column data?
+%     \begin{itemize}
+%       \item Which MBES systems are used (most)?
+%       \item Which encoding is used by which system?
+%     \end{itemize}
+%   \end{itemize}
+%   \item Does a correlation exist between compression performance device from which the water column data originated?
+%   \begin{itemize}
+%   	\item What is / how to measure water column performance?
+%     \item Which MBES systems are used (most)?
+%    \end{itemize}
+% \end{itemize}

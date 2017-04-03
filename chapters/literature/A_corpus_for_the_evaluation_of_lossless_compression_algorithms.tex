@@ -1,0 +1,33 @@
+\cite{arnold1997corpus}\\
+The authors  look into the reliability of empirical evaluations for lossless compression (of text). They indicate that the 'Calgary corpus' that was commonly used for that purpose at the time had become outdated and voice a concern that new compression algorithms may be tailored to that corpus. 
+
+The goal of a corpus of files is to facilitate a one-to-one comparison of compression methods by creating a small random sample of 'likely' files for the compression purpose that is publicly available. A corpus should have conform to the following criteria:
+\begin{itemize}
+\item Be representable of the files that are likely to be used for the compression.
+\item Be widely available and in the public domain.
+\item Not larger than necessary.
+\item Perceived to be valid and useful (otherwise it will not be used). This can be attained by including widely used files and publishing the inclusion procedure for the corpus.
+\item Actually valid and useful. The performance of compression algorithms on files in the corpus should reflect the typical performance of the algorithms.
+\end{itemize}
+
+The authors created a new corpus for file compression using the following steps:
+\begin{enumerate}
+\item Select a large group of files that are relevant for inclusion in the corpus (all public domain)
+\item Divide the files into groups according to their type (e.g. HTML, C code, English text)
+\item select a small number of representative files per group 
+\begin{enumerate}
+\item Create a scatter plot of the file size before and after compression of the files using a number of compression algorithms
+\item Because of the similar file characteristics, an approximately linear relationship is found.
+\item Fit a straight line to the points using ordinary regression techniques.
+\item For each group, pick a file that is closest to the fitted line.
+\end{enumerate}
+\end{enumerate}
+
+The authors note that a corpus may not be a good way to show the compression rate a certain algorithm can attain since there is a lot of deviation between files. It does provide a good basis to compare different algorithms.
+\\
+\temporary{
+Outstanding questions for me:
+\begin{itemize}
+\item How did the authors determine which grouping to use on the files? (Why is 'plays' a separate group and not part of 'English text' for instance)? 
+\end{itemize}
+}

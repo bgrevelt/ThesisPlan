@@ -1,0 +1,138 @@
+\chapter{Research Method}
+\chapterdecscription{
+Present how you are going to find the answers to your research question. This chapter should cover:
+\begin{itemize}
+\item What will make the research difficult?
+\item What is the input you expect from the literature survey
+\item What sources will you use and how will you use / document them?
+\item What experiments / research will you do? What proof of concept will you make?
+\item What method will you use?
+\item Which hypothesis do you have?
+\item Present a time line
+\item How will you validate your research?
+\end{itemize}
+}
+
+\section{Methodology}
+During the thesis I will attempt to create a benchmark (specification) for lossless WCD compression. As it stands, there is no (proposed) standardized way to evaluate WCD compression performance, so the benchmark will have to be created without reference work from the domain. There are many ways to construct benchmarks and the mayor contribution of this thesis will be to determine what the optimal way of benchmarking is for WCD compression. 
+This project will include an extensive literature survey to provide an overview of how other (major) benchmarks have been created. Based on this work, a new benchmark for lossless WCD compression will be presented.
+
+In order to validate the benchmark, it will be applied to a number of different lossless compression algorithms. If possible, the algorithms specifically designed for WCD compression\cite{amblasreal}\cite{beaudoin2010application}\cite{moszynski2013novel} will be used. This depends however on the willingness of the authors to supply the algorithms for benchmarking purposes. 
+
+%If the selected benchmark specification requires the creation of a framework, that framework will be created as part of the thesis and will be made publicly available.
+%\footnote{It is possible that the finding will be that an existing benchmark is suitable for WCD compression, although no such benchmark has been found during the preparation phase. If such a benchmark is found, instead of presenting a new benchmark, we will present how to use the existing benchmark for WCD compression evalution.} 
+
+The benchmark specification will include:
+\begin{itemize}
+\item A data set, or data generator.
+\item A set of metrics.
+\item A specification of how results will be presented.
+\item A specification of the interface WCD compression algorithms will need to adhere to in order to be compatible with the benchmark.
+\end{itemize}
+Subsequent sections will describe the methodology used for each of these parts.
+
+\subsection{Data set}
+The dataset used in a benchmark needs to be representative of the data the algorithm would encounter in real-life. A literature survey on the on the use of WCD on the hydrographic domain should show which groups of data are common in the domain. The next step would be to aggregate a large data set for each group and select representative files from each group. A possible method for selection of files to be included in the dataset is the method described by Ross and Bell \cite{arnold1997corpus}.
+
+Additionally, we may want to add data that specifically stresses problem points in the current technology, so called choke-points \cite{ChokePoint}\cite{capotua2015graphalytics}. In order to be able to do that, we would need to identify what the current choke points are. This would require interviews with experts in the field of WCD compression.
+
+\subsection{Metrics}
+In order to determine which metrics should be calculated by the benchmark, a literature survey will be held to see which metrics are reported in the publications on the different WCD compression algorithms as suggested by Guo et al.\cite{guo2014benchmarking}. Because of the limited work on WCD compression, publications on compression in other (similar) domains will also be included in the survey.
+
+Based on the literature survey performed as part of this plan, I expect that the majority of the publications on (WCD) compression use only simple metrics such as (de)compression rate and time. I believe that we may be able to come up with better metrics. For instance, metrics which have been normalized to exclude the influence of the hardware on which the benchmark was run would lead to results that are easier to compare. In order to get information about these more complex metrics, the literature survey will include publications on benchmark creation.
+
+\section{Difficulties}
+\subsection{Validity of results versus adoption}
+A danger of using a pre-defined dataset for a benchmark is that the authors of compression algorithms tailor the compression algorithms to the benchmark's data set. This would defeat the purpose of the benchmark which is supposed to be an indicator for performance in real life. A possible measure to counteract this situation is to require full disclosure of the algorithms source code to verify that no such tailoring has been applied. The big risk in this is that authors refuse to do this and as a result the benchmark will be poorly adopted. 
+
+\subsection{Corpus in public domain}
+If we need to build a corpus of WCD files (in accordance with the hypothesis) then we need a large body of WCD files that either are or may be placed in the public domain\cite{arnold1997corpus}. Finding a large set of WCD files that are a proper representation of data that a compression algorithm may encounter in real life could be a problem.
+
+\subsection{Real-world vs generated data}
+Using data generation allows the benchmark to facilitate algorithm improvement by tailoring the data to a specific problem. Another advantage is that it could introduce randomness in the input set which would make it harder for authors of algorithms to tailor their algorithms to the benchmark.
+
+The problem with using generated WCD in this thesis is that no such generator currently exists. Creating a WCD that generates data that is representative of real-world WCD is likely to be a problem worth of its own thesis. This makes it unlikely that this can be addressed as part of this thesis (although the results of the thesis could be a basis for such a project).
+
+If it turns out that generated data is is a worthwhile addition to the benchmark and is infeasible to include in this thesis, the benchmark should be created in such a way that data generation could easiliy be added in future work.
+
+\subsection{Results}
+The metrics we choose to include in the benchmark are tightly coupled to they way we choose to gather benchmark results. If we choose metrics that are influenced by the platform on which the benchmark is run (CPU, memory, etc) then the results of a run of that benchmark cannot be directly compared to runs on other platforms. A solution for this would be to run the benchmark periodically on a dedicated server and publish only the results of those runs. Authors can request addition of their algorithms to the benchmark runs. This approach is used to publish the results of the Canterbury corpus\cite{powell2001evaluating}.
+
+When normalized metrics are used, the authors of algorithms could run the benchmark and submit their results for publication. This approach is used by Graphalytics \cite{capotua2015graphalytics}. 
+
+In order to determine the best way to get and publish benchmark results, the chosen methods and rationale of other benchmark suites will be reviewed as part of a literature survey. 
+
+\subsection{Encoding}
+All WCD compression algorithms published so far (\cite{beaudoin2010application}, \cite{moszynski2013novel} \& \cite{amblasreal}) focus on compression of WCD from a single manufacturer. That means a single encoding of the data. It is likely that the envisioned benchmark will contain data from in different encodings. That means that algorithms that either the benchmark requires the algorithms to be able to encode all formats (possibly by supplying information about the encoding with the data) or convert the input data to use a single encoding (possibly the generic format suggested by Doucet et al. \cite{doucet2009advanced})
+
+\section{Hypothesis}
+WCD compression algorithm performance can best be evaluated using a corpus of data which is representative of the application of MBES systems in the hydrographic field (both in encoding and content of the data. The most important metrics will be compression rate, (de)compression time and losslessness. 
+In order to provide informative results, the benchmark will have to run on all algorithms of interest on the same platform. Therefore the benchmark will be run by a dedicated agent.
+
+% \temporary{
+% \begin{itemize}
+% \item What will make the research difficult?
+%   \begin{itemize}
+%   	\item This thesis will be the first attempt at creating a standardized way of evaluating WCD compression performance. 
+%     \item Public domain for corpus.
+%     \item Current algorithms are not agnostic to encoding. We would like them to be for a singular performance metric.
+%     \item Most interesting validation would be using actual WCD compression algorithms. May not get them, may be tailored to specific encoding too much.
+%     \item How to get the 'best numbers' while still getting broad adoption?
+%   \end{itemize}
+% \item What is the input you expect from the literature survey
+%   \begin{itemize}
+%   	\item How other benchmark suites have been built
+%     \item The applications of MBES systems in hydrography.
+%     \item An overview of the different WCD encodings used in the hydrography field.
+%     \item An overview of the available WCD compression methods.
+%   \end{itemize}
+% \item What sources will you use and how will you use / document them?
+% \item What experiments / research will you do? What proof of concept will you make?
+%   \begin{itemize}
+%   	\item Research how other benchmark suites have been created (maybe their success?)
+%   	\item Research metrics for compression performance and how 'portable' they are.
+%   \end{itemize}
+% \item What method will you use?
+%   \begin{itemize}
+%   	\item This is hard. As a validation we will do a controlled study, but that doesn't what is the rest?
+%   \end{itemize}
+% \item Which hypothesis do you have?
+% 	"WCD compression algorithm performance can best be evaluated using a corpus of data which is representative of the application of MBES systems in the hydrographic field (both in encoding and content of the data. The most important metrics will be compression rate and (de)compression time."
+% \item Present a time line
+% \item How will you validate your research?
+% The benchmark will be run on a number of lossless compression algorithms and should be able to descern them from each other based on the calculated metrics.
+% \end{itemize}
+% }
+
+% \section{Evaluation corpus}
+% A corpus of water column data files for evaluation of compression methods will be created similar to the Calgary corpus\cite{bell1990text} and the Canterbury corpus\cite{arnold1997corpus} that have been created as a benchmark set for lossless text compression. 
+
+% According to Arnold and Bell a good corpus should only contain files that are in the public domain. For the creation of their corpus they started out with 800 files that were all in the public domain. Finding enough water column files (of the right types) in the public domain may be a difficulty in this project as much water column data is proprietary. A possible solution would be to include proprietary data from owners that we believe may be motivated to move the data to the public domain (such as authorities and multibeam system manufacturers) and try to get the files into the public domain if they are selected to be part of the corpus.
+
+% Arnold and Bell state that "A corpus should be representative of the files that are likely to be used by a compression system in the future". In order to build the corpus we should have information on which type of water column data files are 'likely' to be used. The literature survey should provide information on what type of water column data is most used in practice. The type includes both the encoding of the data (which is often vendor specific) and the information present in the water column (e.g. seabed type, presence of fish, gas seeps or man made structures, etc.).
+% Although the paper by Arnold and Bell\cite{arnold1997corpus} provides a lot of information on how to setup a corpus, I want to get some additional information from the literature survey. Specifically on the grouping of the data. I assume that 
+
+% \section{Water column compression algorithm performance framework}
+% A framework will be created to support the evaluation of the performance of different water column compression algorithms. In order to create a proper framework the following questions need to be answered:
+% \begin{itemize}
+% \item What water column compression algorithms exist?\\
+% This questions needs to be answered to get a feeling for the variables that exist for the compression algorithms. The framework should support changing these variables to measure how they impact the algorithms performance.\\
+% It is also important to know what information about the data is required by the algorithm for it to work. If an algorithm for instance applies a specific action on water column sample data that should not be performed on the water column meta data, the framework should facilitate input of the water column data structure to the algorithm.
+% \item Which quantities are important to evaluate water column compression performance.\\
+% \end{itemize}
+
+% \section{Water column compression algorithm performance comparison}
+% A controlled experiment to evaluate the performance of the different water column data compression algorithms will be performed using the framework to change variables (such as the used compression algorithm and the variables within that algorithm).
+
+% My hypothesis is that the study will show that there is not one algorithm that outperforms all others over the entire corpus. Rather each algorithm will have the best performance for a specific file type.
+% This hypothesis is based on the fact that each study has only used water column data originating from a single device. I expect the compression algorithms to be tailored to that specific file type.
+
+% A possible difficulty in the comparison is that none of the proposed algorithms are directly available. In a best case scenario, the authors are willing to share their algorithm so that it can be evaluated, but in a worst case scenario the algorithm will have to be replicated based on the information in the paper. This may lead to a number of prolems:
+% \begin{itemize}
+% \item Replication may not be possible based on the information in the paper.
+% \item Replication may not be possible within the project's time frame.
+% \item Results obtained with an algorithm replicated from the paper are indicative at best since there is no way to prove that the replicated algorithm performs equally to the original implementation.
+% \end{itemize}
+
+% \todo{Find out what is meant with "What experiments / research will you do? What proof of concept will you make"}
+% \todo{Determine how to validate the research}

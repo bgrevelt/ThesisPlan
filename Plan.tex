@@ -1,0 +1,38 @@
+\temporary{
+\chapter{Questions}
+Questions:\\
+\begin{itemize}
+
+\item I'm having a hard time with formulating the exact research question.  My real question would be "How do the different compression algorithms compare?" because a number have been proposed, all have been 'tested' with a proprietary data set (which is so small that the algorithm is probably tailored to the data). I'm not sure if this is really a research question though. another research question would be how to evaluate WC compression algorithms. But how to I prove that whatever I come up with is the best way? 
+\item "How will you validate your research?" question. What is meant with validation in this sense? My idea of validation would be to base on existing similar frameworks and provide argumentation for the differences. Is that correct?
+Validation from corpus (size, variety, real-world data)
+\item What happens if I find out that a 'generic' compression algorithm evaluation framework would suffice for water column data? Would that discovery (with argumentation) still be considered a contribution?
+
+\begin{itemize}
+\item Unlike the other data types for which I have seen compression evaluation frameworks (text, images, sound) there is no standard encoding for water column data.  Text, images and sound respectively have ASCII/UTF, RAW, WAV but for water column the encoding depends on the device that provides the data. The compression algorithms for water column data need to be made aware of the encoding of the data they need to compress.
+\textbf{Note: Is that a difference for the framework or for the compression algorithm. How would the framework need to change to support this?}
+\item Water column data is comparable to a movie in that a single 'element' contains multiple water column 'pictures'. (But no sound, so actually more like a slide show)
+\end{itemize}
+
+\item \textbf{Question for me, not Ana:} What would be the added value for the host company?
+\item \textbf{Question for me, not Ana:} Why do we need a compression algorithm evaluation framework specifically for WCD? What is so special about WCD that it would need its own framework?
+\end{itemize}
+}
+\clearpage
+Notes:
+Just so that we have this somewhere: Maybe we should stress that the framework is for evaluation of performance which may not be the same as benchmarking (it may be, we need to figure that out). The point is that most benchmarking of compression methods that I have found give two numbers: Compression rate \&time. Our framework should be useful for scientific research, so I think we want more. For instance, it would be nice to be able to see those two numbers per ping. That was researchers can research why certain pings have better/worse compression performance so that an algorithm can be improved.
+
+
+Steps to get at current idea:
+\begin{enumerate}
+\item Company: We need compression of water column data so that clients will record it.
+\item Idea one: Try to create a water column compression algorithm that is better than the current state of the art. Look into the state of the art for similar technologies (for instance compression used for sonograms/ultrasounds)
+\item Found three papers on water column compression algorithms
+\item Found that there appears to be no standard way to evaluation the algorithms. Each algorithm uses a proprietary data set and none compare results to previous work.
+\item Idea two: Replicate the three studies. Use the same data set on the three to compare them. See if we can find correlations between the types of data or the encoding method on the compression performance. Goal: See what the strengths and weaknesses are of each algorithm, use that to build a better algorithm.
+\item How do we determine which data sets to use for testing?
+\item Found a paper on Calgary corpus used for text compression benchmarking. Seemed like a good place to start.
+\item Talked to Ana: Research question is not 'what is the best way to compress WC data', but 'How to evaluate water column compression'.  The WC compression evaluation framework is the contribution.
+\item It does not seem viable to create a corpus and a framework \textbf{and} create an improved compression algorithm in three months. Dropped the creation of a new algorithm. 
+\item The corpus together with the evaluation framework should provide a standard from WC compression algorithm comparison. Instead of simply publishing a new algorithm, authors can publish a new algorithm and show that it outperforms others. 
+\end{enumerate}
